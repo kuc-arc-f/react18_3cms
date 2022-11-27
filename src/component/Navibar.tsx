@@ -3,14 +3,33 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 type Props = {
-  name: string;
+  name: string | undefined;
 };
 //
 export default function Page(props :Props) {
   console.log(props); 
-
   const name  = props.name;
   return (
+  <div id="div_navigate_index" className="myblog_bgcolor_main">
+    <div id="div_head" className="cover">
+      <div className="container">
+          <div className="row">
+            <div className="col-sm-6 p-2">
+            <Link to="/" ><h3>{name}</h3>
+            </Link>
+            </div>
+            <div className="col-sm-6 text-center">
+              <Link to="/" >
+                <i className="bi bi-house-fill mx-2"></i>
+              </Link>                      
+            </div>
+          </div>
+      </div>
+    </div>    
+  </div>    
+  );
+}
+/*
   <nav className="navbar navbar-expand-md navbar-light bg-light">
     <div className="container-fluid">
       <Link to="/" className="navbar-brand">{name}</Link>
@@ -24,9 +43,6 @@ export default function Page(props :Props) {
             <Link to="/" className="nav-link active" aria-current="page">Home</Link>
           </li>
           <li className="nav-item">
-            {/*
-            <Link to="/about" className="nav-link active" aria-current="page">About</Link>
-            */}
           </li>
         </ul>
         <ul className="navbar-nav d-flex">
@@ -37,10 +53,4 @@ export default function Page(props :Props) {
       </div>
     </div>
   </nav> 
-  );
-}
-/*
-<li className="nav-item">
-  <Link to="/posts" className="nav-link active" aria-current="page">Post</Link>
-</li>
 */
